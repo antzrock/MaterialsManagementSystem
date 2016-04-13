@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMS.Web", "MMS.Web\MMS.Web.csproj", "{EFCECFB5-23EE-43DA-AE57-FBE8320004AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMS.Data", "MMS.Data\MMS.Data.csproj", "{5590EB94-D37B-46B0-95A5-4E06510F071F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMS.Entities", "MMS.Entities\MMS.Entities.csproj", "{04F4ED15-A047-4F8A-9C79-17C43508318B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFCECFB5-23EE-43DA-AE57-FBE8320004AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFCECFB5-23EE-43DA-AE57-FBE8320004AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFCECFB5-23EE-43DA-AE57-FBE8320004AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFCECFB5-23EE-43DA-AE57-FBE8320004AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5590EB94-D37B-46B0-95A5-4E06510F071F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5590EB94-D37B-46B0-95A5-4E06510F071F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5590EB94-D37B-46B0-95A5-4E06510F071F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5590EB94-D37B-46B0-95A5-4E06510F071F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04F4ED15-A047-4F8A-9C79-17C43508318B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04F4ED15-A047-4F8A-9C79-17C43508318B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04F4ED15-A047-4F8A-9C79-17C43508318B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04F4ED15-A047-4F8A-9C79-17C43508318B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
