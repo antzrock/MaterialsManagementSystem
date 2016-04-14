@@ -23,7 +23,7 @@ namespace MMS.Data
         public IDbSet<Role> Roles { get; set; }
         public IDbSet<Permission> Permissions { get; set; }
         public IDbSet<Person> Persons { get; set; }
-
+        public IDbSet<Employee> Employees { get; set; }
 
         #endregion
 
@@ -45,7 +45,8 @@ namespace MMS.Data
             modelBuilder.ComplexType<ContactInformation>();
             modelBuilder.ComplexType<GovernmentMandatedInformation>();
 
-            modelBuilder.Configurations.Add(new PersonConfiguration());    
+            modelBuilder.Configurations.Add(new PersonConfiguration());
+            modelBuilder.Configurations.Add(new EmployeeConfiguration());    
                 
 
         }

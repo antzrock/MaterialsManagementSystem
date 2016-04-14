@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Address.cs" />
     <Compile Include="ContactInformation.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="GovernmentMandatedInformation.cs" />
     <Compile Include="IEntityBase.cs" />
     <Compile Include="Permission.cs" />

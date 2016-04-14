@@ -30,6 +30,7 @@ namespace MMS.Entities
             CurrentAddress = new Address();
             ContactInformation = new ContactInformation();
             GovernmentMandatedInformation = new GovernmentMandatedInformation();
+            IsActive = true;
         }
 
         //IEntityBase Fields
@@ -44,6 +45,8 @@ namespace MMS.Entities
         public DateTime? UpdatedDate { get; set; }
 
         public byte[] RowVersion { get; set; }
+
+        public bool IsActive { get; set; }
 
         //Person Fields
         public string Firstname { get; set; }
@@ -71,5 +74,10 @@ namespace MMS.Entities
         public ContactInformation ContactInformation { get; set; }
 
         public GovernmentMandatedInformation GovernmentMandatedInformation { get; set; }
+
+        //Relationships...
+        public User UserDetails { get; set; }
+
+        public virtual Employee EmployeeDetails { get; set; }
     }
 }

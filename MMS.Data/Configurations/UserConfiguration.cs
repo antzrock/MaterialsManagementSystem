@@ -18,6 +18,8 @@ namespace MMS.Data.Configurations
             Property(u => u.AvatarPicPath).IsOptional().HasMaxLength(1000);
             Property(u => u.ProfilePicPath).IsOptional().HasMaxLength(1000);
             Property(u => u.ProfileQuote).IsOptional().HasMaxLength(2000);
+            HasOptional(u => u.Profile).WithRequired(u => u.UserDetails);
+            HasMany(u => u.Roles).WithMany(u => u.Users).Map(u => { u.MapLeftKey("Role_ID"); u.MapRightKey("User_ID"); u.ToTable("UserRoles"); });
         }
     }
 }

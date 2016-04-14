@@ -12,6 +12,7 @@ namespace MMS.Entities
         public User()
         {
             IsLocked = false;
+            IsActive = true;
         }
 
         //IEntityBase Fields
@@ -27,6 +28,8 @@ namespace MMS.Entities
 
         public byte[] RowVersion { get; set; }
 
+        public bool IsActive { get; set; }
+
         //User Fields
         public string Username { get; set; }
         
@@ -39,6 +42,10 @@ namespace MMS.Entities
         public string HashedPassword { get; set; }
         public string Salt { get; set; }
         public bool IsLocked { get; set; }
+        
+        //Relationship...
+        public virtual Person Profile { get; set; }       
 
+        public ICollection<Role> Roles { get; set; }
     }
 }

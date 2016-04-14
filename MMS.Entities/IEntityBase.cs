@@ -19,5 +19,7 @@ namespace MMS.Entities
         DateTime? UpdatedDate { get; set; }
 
         byte[] RowVersion { get; set; }
+
+        bool IsActive { get; set; }
     }
 }

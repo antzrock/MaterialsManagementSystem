@@ -8,6 +8,11 @@ namespace MMS.Entities
 {
     public class Permission : IEntityBase
     {
+        public Permission()
+        {
+            IsActive = true;
+        }
+
         //IEntityBase Fields
         public int ID { get; set; }
 
@@ -21,9 +26,14 @@ namespace MMS.Entities
 
         public byte[] RowVersion { get; set; }
 
+        public bool IsActive { get; set; }
+
         //Permission Fields
         public string Name { get; set; }
 
         public string Description { get; set; }
+
+        //Relationships
+        public ICollection<Role> Roles { get; set; }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MMS.Entities
 {
-    public class Role : IEntityBase
+    public class Employee : IEntityBase
     {
-        public Role()
+        public Employee()
         {
             IsActive = true;
         }
@@ -28,12 +28,17 @@ namespace MMS.Entities
 
         public bool IsActive { get; set; }
 
-        //Role Fields
-        public string Name { get; set; }
+        //Employee Fields
+        public string EmployeeID { get; set; }
 
-        //Relationships
-        public ICollection<User> Users { get; set; }
+        public DateTime HiredDate { get; set; }
 
-        public ICollection<Permission> Permissions { get; set; }
+        public DateTime StartDate { get; set; }
+
+        public DateTime? EndDate { get; set; }
+
+        //Relationship
+        public Person Profile { get; set; }
+
     }
 }

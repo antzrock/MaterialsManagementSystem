@@ -19,7 +19,8 @@ namespace MMS.Data.Configurations
             Property(e => e.Sex).IsRequired();
             Property(e => e.CivilStatus).IsRequired();
             Property(e => e.Nationality).IsRequired();
-            
+            HasRequired(e => e.UserDetails).WithOptional(e => e.Profile);
+            HasOptional(e => e.EmployeeDetails).WithRequired(e => e.Profile);
         }
     }
 }
