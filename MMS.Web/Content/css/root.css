@@ -1,0 +1,20 @@
+/*================================================================================
+	Item Name: Teamwork
+	Description: Root CSS
+	Author: Antonio Amiel L. Yap
+================================================================================*/
+
+/* ================================================
+Google Web Fonts
+================================================ */
+/* Montserrat */
+@import url('../fonts/montserrat/montserrat-fonts.css');
+/* Open Sans */
+@import url('../fonts/open-sans/open-sans-fonts.css');
+
+/* === Icons === */
+/* Font Awesome */
+@import url('font-awesome.min.css');
+
+
+

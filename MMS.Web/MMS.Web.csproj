@@ -44,6 +44,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=3.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.3.4.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -126,6 +146,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\AutofacWebapiConfig.cs" />
+    <Compile Include="App_Start\Bootstrapper.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -134,29 +156,159 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Core\ApiControllerBase.cs" />
+    <Compile Include="Infrastructure\Extensions\RequestMessageExtensions.cs" />
+    <Compile Include="Infrastructure\FileSystem\FileSystem.cs" />
+    <Compile Include="Infrastructure\FileSystem\IFileSystem.cs" />
+    <Compile Include="Infrastructure\FlowJS\Flow.cs" />
+    <Compile Include="Infrastructure\FlowJS\FlowRequest.cs" />
+    <Compile Include="Infrastructure\FlowJS\FlowRequestContext.cs" />
+    <Compile Include="Infrastructure\FlowJS\FlowRequestReader.cs" />
+    <Compile Include="Infrastructure\FlowJS\FlowTemporaryFileProvider.cs" />
+    <Compile Include="Infrastructure\Mappings\AutoMapperConfiguration.cs" />
+    <Compile Include="Infrastructure\Mappings\DomainToViewModelMappingProfile.cs" />
+    <Compile Include="Infrastructure\MessageHandlers\MMSAuthHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\awesome-bootstrap-checkbox.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\datatables.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\responsive.css" />
+    <Content Include="Content\css\root.css" />
+    <Content Include="Content\css\select.css" />
+    <Content Include="Content\css\shortcuts.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\summernote-bs3.css" />
+    <Content Include="Content\css\toaster.css" />
+    <Content Include="Content\css\xeditable.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\montserrat\fonts\Montserrat-700\LICENSE.txt" />
+    <Content Include="Content\fonts\montserrat\fonts\Montserrat-700\Montserrat-700.svg" />
+    <Content Include="Content\fonts\montserrat\fonts\Montserrat-regular\LICENSE.txt" />
+    <Content Include="Content\fonts\montserrat\fonts\Montserrat-regular\Montserrat-regular.svg" />
+    <Content Include="Content\fonts\montserrat\montserrat-fonts.css" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-300italic\LICENSE.txt" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-300italic\Open-Sans-300italic.svg" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-300\LICENSE.txt" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-300\Open-Sans-300.svg" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-600italic\LICENSE.txt" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-600italic\Open-Sans-600italic.svg" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-600\LICENSE.txt" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-600\Open-Sans-600.svg" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-700italic\LICENSE.txt" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-700italic\Open-Sans-700italic.svg" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-700\LICENSE.txt" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-700\Open-Sans-700.svg" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-800italic\LICENSE.txt" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-800italic\Open-Sans-800italic.svg" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-800\LICENSE.txt" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-800\Open-Sans-800.svg" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-italic\LICENSE.txt" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-italic\Open-Sans-italic.svg" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-regular\LICENSE.txt" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-regular\Open-Sans-regular.svg" />
+    <Content Include="Content\fonts\open-sans\open-sans-fonts.css" />
+    <Content Include="Content\images\no_image.png" />
+    <Content Include="Content\images\profile\default_avatar.png" />
+    <Content Include="Content\images\profile\default_profile.png" />
+    <Content Include="Content\images\profile\default_user.png" />
+    <Content Include="Content\images\profile\ichigo_avatar.png" />
+    <Content Include="Content\images\profile\ichigo_profile.jpg" />
+    <Content Include="Content\images\profile\ichigo_profile.png" />
+    <Content Include="Content\images\profile\naruto_avatar.png" />
+    <Content Include="Content\images\profile\naruto_avatar_small.png" />
+    <Content Include="Content\images\profile\naruto_profile.jpg" />
+    <Content Include="Content\images\profile\sasuke_avatar.jpg" />
+    <Content Include="Content\images\profile\sasuke_avatar.png" />
+    <Content Include="Content\images\profile\sasuke_profile.png" />
+    <Content Include="Content\images\profile\sis_logo.png" />
+    <Content Include="Content\images\project\default_project_logo.png" />
+    <Content Include="Content\images\project\eamcusrep_logo.png" />
+    <Content Include="Content\images\project\sis_logo.png" />
+    <Content Include="Content\images\project\teamwork.png" />
+    <Content Include="Content\images\project\teamwork_logo.png" />
+    <Content Include="Content\images\socialbg.jpg" />
+    <Content Include="Content\images\teamwork.ico" />
+    <Content Include="Content\images\teamwork.png" />
+    <Content Include="Content\images\teamwork_email.png" />
+    <Content Include="Content\images\teamwork_logo.png" />
+    <Content Include="Content\images\team_default_icon.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\_references.js" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\montserrat\fonts\Montserrat-700\Montserrat-700.eot" />
+    <Content Include="Content\fonts\montserrat\fonts\Montserrat-700\Montserrat-700.ttf" />
+    <Content Include="Content\fonts\montserrat\fonts\Montserrat-700\Montserrat-700.woff" />
+    <Content Include="Content\fonts\montserrat\fonts\Montserrat-700\Montserrat-700.woff2" />
+    <Content Include="Content\fonts\montserrat\fonts\Montserrat-regular\Montserrat-regular.eot" />
+    <Content Include="Content\fonts\montserrat\fonts\Montserrat-regular\Montserrat-regular.ttf" />
+    <Content Include="Content\fonts\montserrat\fonts\Montserrat-regular\Montserrat-regular.woff" />
+    <Content Include="Content\fonts\montserrat\fonts\Montserrat-regular\Montserrat-regular.woff2" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-300italic\Open-Sans-300italic.eot" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-300italic\Open-Sans-300italic.ttf" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-300italic\Open-Sans-300italic.woff" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-300italic\Open-Sans-300italic.woff2" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-300\Open-Sans-300.eot" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-300\Open-Sans-300.ttf" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-300\Open-Sans-300.woff" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-300\Open-Sans-300.woff2" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-600italic\Open-Sans-600italic.eot" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-600italic\Open-Sans-600italic.ttf" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-600italic\Open-Sans-600italic.woff" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-600italic\Open-Sans-600italic.woff2" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-600\Open-Sans-600.eot" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-600\Open-Sans-600.ttf" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-600\Open-Sans-600.woff" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-600\Open-Sans-600.woff2" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-700italic\Open-Sans-700italic.eot" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-700italic\Open-Sans-700italic.ttf" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-700italic\Open-Sans-700italic.woff" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-700italic\Open-Sans-700italic.woff2" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-700\Open-Sans-700.eot" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-700\Open-Sans-700.ttf" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-700\Open-Sans-700.woff" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-700\Open-Sans-700.woff2" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-800italic\Open-Sans-800italic.eot" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-800italic\Open-Sans-800italic.ttf" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-800italic\Open-Sans-800italic.woff" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-800italic\Open-Sans-800italic.woff2" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-800\Open-Sans-800.eot" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-800\Open-Sans-800.ttf" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-800\Open-Sans-800.woff" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-800\Open-Sans-800.woff2" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-italic\Open-Sans-italic.eot" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-italic\Open-Sans-italic.ttf" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-italic\Open-Sans-italic.woff" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-italic\Open-Sans-italic.woff2" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-regular\Open-Sans-regular.eot" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-regular\Open-Sans-regular.ttf" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-regular\Open-Sans-regular.woff" />
+    <Content Include="Content\fonts\open-sans\fonts\Open-Sans-regular\Open-Sans-regular.woff2" />
+    <Content Include="Content\images\profile\chunks\10201-naruto_profilejpg\00000001_10201-naruto_profilejpg.chunk" />
+    <Content Include="Content\images\profile\chunks\11229-ichigo_avatarpng\00000001_11229-ichigo_avatarpng.chunk" />
+    <Content Include="Content\images\profile\chunks\11843-naruto_avatar_smallpng\00000001_11843-naruto_avatar_smallpng.chunk" />
+    <Content Include="Content\images\profile\chunks\12417-naruto_avatarpng\00000001_12417-naruto_avatarpng.chunk" />
+    <Content Include="Content\images\profile\chunks\20220-sasuke_profilepng\00000001_20220-sasuke_profilepng.chunk" />
+    <Content Include="Content\images\profile\chunks\21081-ichigo_profilejpg\00000001_21081-ichigo_profilejpg.chunk" />
+    <Content Include="Content\images\profile\chunks\224339-ichigo_profilejpg\00000001_224339-ichigo_profilejpg.chunk" />
+    <Content Include="Content\images\profile\chunks\44246-ichigo_avatarpng\00000001_44246-ichigo_avatarpng.chunk" />
+    <Content Include="Content\images\profile\chunks\45054-sasuke_avatarpng\00000001_45054-sasuke_avatarpng.chunk" />
+    <Content Include="Content\images\profile\chunks\46944-ichigo_profilepng\00000001_46944-ichigo_profilepng.chunk" />
+    <Content Include="Content\images\profile\chunks\4926-naruto_avatar_smallpng\00000001_4926-naruto_avatar_smallpng.chunk" />
+    <Content Include="Content\images\profile\chunks\6758-default_profilepng\00000001_6758-default_profilepng.chunk" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -174,7 +326,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\profile\temp\" />
+    <Folder Include="Content\images\project\chunks\" />
+    <Folder Include="Content\images\project\temp\" />
     <Folder Include="Models\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -182,7 +338,20 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MMS.Data\MMS.Data.csproj">
+      <Project>{5590eb94-d37b-46b0-95a5-4e06510f071f}</Project>
+      <Name>MMS.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMS.Entities\MMS.Entities.csproj">
+      <Project>{04f4ed15-a047-4f8a-9c79-17c43508318b}</Project>
+      <Name>MMS.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MMS.Services\MMS.Services.csproj">
+      <Project>{dcb0c017-3dee-4684-b915-f2736a99700d}</Project>
+      <Name>MMS.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

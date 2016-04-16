@@ -55,6 +55,7 @@
     <Compile Include="Configurations\PersonConfiguration.cs" />
     <Compile Include="Configurations\RoleConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
+    <Compile Include="Extensions\UserExtensions.cs" />
     <Compile Include="Infrastructure\DbFactory.cs" />
     <Compile Include="Infrastructure\Disposable.cs" />
     <Compile Include="Infrastructure\IDbFactory.cs" />
@@ -70,9 +71,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\MMS.Entities\MMS.Entities.csproj">
       <Project>{04f4ed15-a047-4f8a-9c79-17c43508318b}</Project>
