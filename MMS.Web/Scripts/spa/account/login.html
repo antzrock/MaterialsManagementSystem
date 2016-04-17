@@ -1,0 +1,50 @@
+﻿<div class="login-form">
+    <form name="userLoginForm" class="form-login" role="form" novalidate angular-validator angular-validator-submit="login()">
+        <div class="top">
+            <img class="icon" src="../../../Content/images/teamwork.png" alt="icon">
+            <h1 class="color1"><strong class="color1">ERMS</strong></h1>
+            <h4 class="color1"><strong class="color5">Enterprise Resource Management System</strong></h4>
+        </div>
+        <div class="form-area">
+            <div class="group" show-errors='{ showSuccess: true, skipFormGroupCheck: true }'>
+                <input name="Username"
+                       class="form-control"
+                       type="text"
+                       placeholder="Username"
+                       ng-model="user.userName"
+                       validate-on="dirty"
+                       required
+                       required-message="'Username is required'">
+
+                <i class="fa fa-user"></i>
+            </div>
+            <div class="group" show-errors='{ showSuccess: true, skipFormGroupCheck: true }'>
+                <input name="Password"
+                       class="form-control"
+                       type="password"
+                       placeholder="Password"
+                       ng-model="user.password"
+                       validate-on="dirty"
+                       required
+                       required-message="'Password is required'">
+
+                <i class="fa fa-key"></i>
+            </div>
+            <div class="checkbox checkbox-primary">
+                <input id="checkbox101" type="checkbox" checked="">
+                <label for="checkbox101"> Remember Me</label>
+            </div>
+            <button class="btn btn-default btn-block" type="submit">LOGIN</button>
+        </div>
+    </form>
+    <div class="footer-links row">
+        <div class="col-xs-6 text-right">
+            <a ng-href="/forgotpassword">
+                <i class="fa fa-lock"></i>
+                Forgot password
+            </a>
+        </div>
+    </div>
+</div>
+
+

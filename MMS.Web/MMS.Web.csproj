@@ -212,7 +212,9 @@
     <Content Include="Content\fonts\open-sans\fonts\Open-Sans-regular\LICENSE.txt" />
     <Content Include="Content\fonts\open-sans\fonts\Open-Sans-regular\Open-Sans-regular.svg" />
     <Content Include="Content\fonts\open-sans\open-sans-fonts.css" />
+    <Content Include="Content\images\golden_dragon_logo.jpg" />
     <Content Include="Content\images\no_image.png" />
+    <Content Include="Content\images\oceanjet_logo.png" />
     <Content Include="Content\images\profile\default_avatar.png" />
     <Content Include="Content\images\profile\default_profile.png" />
     <Content Include="Content\images\profile\default_user.png" />
@@ -309,6 +311,39 @@
     <Content Include="Content\images\profile\chunks\46944-ichigo_profilepng\00000001_46944-ichigo_profilepng.chunk" />
     <Content Include="Content\images\profile\chunks\4926-naruto_avatar_smallpng\00000001_4926-naruto_avatar_smallpng.chunk" />
     <Content Include="Content\images\profile\chunks\6758-default_profilepng\00000001_6758-default_profilepng.chunk" />
+    <Content Include="Scripts\spa\app.js" />
+    <Content Include="Scripts\spa\account\login.html" />
+    <Content Include="Scripts\spa\account\loginCtrl.js" />
+    <Content Include="Scripts\spa\home\rootCtrl.js" />
+    <Content Include="Scripts\spa\modules\common.core.js" />
+    <Content Include="Scripts\spa\modules\common.ui.js" />
+    <Content Include="Scripts\spa\services\apiService.js" />
+    <Content Include="Scripts\spa\services\membershipService.js" />
+    <Content Include="Scripts\spa\services\notificationService.js" />
+    <Content Include="Scripts\vendors\angucomplete-alt.min.js" />
+    <Content Include="Scripts\vendors\angular-animate.js" />
+    <Content Include="Scripts\vendors\angular-base64.js" />
+    <Content Include="Scripts\vendors\angular-bootstrap-checkbox.js" />
+    <Content Include="Scripts\vendors\angular-cookies.js" />
+    <Content Include="Scripts\vendors\angular-local-storage.min.js" />
+    <Content Include="Scripts\vendors\angular-route.js" />
+    <Content Include="Scripts\vendors\angular-sanitize.js" />
+    <Content Include="Scripts\vendors\angular-strap.js" />
+    <Content Include="Scripts\vendors\angular-strap.tpl.js" />
+    <Content Include="Scripts\vendors\angular-validator.js" />
+    <Content Include="Scripts\vendors\angular.js" />
+    <Content Include="Scripts\vendors\checklist-model.js" />
+    <Content Include="Scripts\vendors\date-parser.js" />
+    <Content Include="Scripts\vendors\modernizr.js" />
+    <Content Include="Scripts\vendors\moment.js" />
+    <Content Include="Scripts\vendors\ng-flow-standalone.js" />
+    <Content Include="Scripts\vendors\ngletteravatar.js" />
+    <Content Include="Scripts\vendors\ngStorage.min.js" />
+    <Content Include="Scripts\vendors\select.js" />
+    <Content Include="Scripts\vendors\smart-table.js" />
+    <Content Include="Scripts\vendors\toaster.js" />
+    <Content Include="Scripts\vendors\ui-bootstrap-tpls-0.13.1.js" />
+    <Content Include="Scripts\vendors\xeditable.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -317,11 +352,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -330,7 +360,6 @@
     <Folder Include="Content\images\project\chunks\" />
     <Folder Include="Content\images\project\temp\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
